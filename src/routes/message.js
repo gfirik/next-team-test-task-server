@@ -5,7 +5,9 @@ let messages = [];
 
 // Add a new message
 messageRouter.post("/", (req, res) => {
-  const newMessage = req.body.message;
+  const message = req.body.message;
+  const author = req.body.author;
+  const newMessage = { message, author };
   messages.push(newMessage);
   res.json(newMessage);
 });
